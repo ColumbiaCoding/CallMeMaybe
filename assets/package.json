@@ -1,0 +1,22 @@
+{
+  "name": "basic-video-zoom",
+  "version": "1.0.0",
+  "description": "This sample application shows how to use a basic video zoom transformer with the Vonage",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "sirv --dev"
+  },
+  "author": "Iu Jie",
+  "license": "ISC",
+  "dependencies": {
+    "@opentok/client": "^2.24.6",
+    "@vonage/ml-transformers": "^4.3.4"
+  },
+  "devDependencies": {
+    "sirv-cli": "^2.0.2"
+  }
+}
