@@ -1,27 +1,61 @@
-// The following Node.js code shows how to obtain a token that has a role of "publisher" and that has a connection metadata string:
+const router = require('express').Router();
+const { User } = require('../../models');
 
-// Set the following constants with the API key and API secret
-// that you receive when you sign up to use the OpenTok API:
-var opentok = new OpenTok(API_KEY, API_SECRET);
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
 
-//Generate a basic session. Or you could use an existing session ID.
-var sessionId;
-var token
-opentok.createSession({}, function(error, session) {
-  if (error) {
-    console.log("Error creating session:", error)
-  } else {
-    sessionId = session.sessionId;
-    console.log("Session ID: " + sessionId);
-    //  Use the role value appropriate for the user:
-    var tokenOptions = {};
-    tokenOptions.role = "publisher";
-    tokenOptions.data = "username=bob";
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
 
-    // Generate a token.
-    token = opentok.generateToken(sessionId, tokenOptions);
-    console.log(token);
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
-}
+router.post('/login', async (req, res) => {
+  try {
+    const userData = await User.findOne({ where: { email: req.body.email } });
+
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    const validPassword = await userData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+module.exports = router;

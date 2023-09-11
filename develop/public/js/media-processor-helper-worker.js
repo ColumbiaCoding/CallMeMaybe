@@ -1,4 +1,4 @@
-import { MediapipeHelper } from '../node_modules/@vonage/ml-transformers/dist/ml-transformers.es.js';
+import { MediapipeHelper } from '@vonage/ml-transformers/dist/ml-transformers.es.js';
 
 export class WorkerMediaProcessor {
   constructor() {

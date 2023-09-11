@@ -1,4 +1,4 @@
-import { MediaProcessorConnector } from '../node_modules/@vonage/media-processor/dist/media-processor.es.js';
+import { MediaProcessorConnector } from '@vonage/media-processor/dist/media-processor.es.js';
 import { WorkerMediaProcessor } from './media-processor-helper-worker.js';
 /* global OT API_KEY TOKEN SESSION_ID SAMPLE_SERVER_BASE_URL */
 /* global ResizeTransformer MediaProcessor MediaProcessorConnector */
