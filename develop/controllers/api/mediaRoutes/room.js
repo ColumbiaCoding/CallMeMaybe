@@ -1,5 +1,7 @@
-// The GET /room/:name route associates an OpenTok session with a "room" name. This route handles the passed room name and performs a check to determine whether the app should generate a new session ID or retrieve a session ID from the local in-memory hash. Then, it generates an OpenTok token for that session ID. Once the API key, session ID, and token are ready, it sends a response with the body set to a JSON object containing the information.
+const router = require('express').Router();
+const { User } = require('../../../models');
 
+// The GET /room/:name route associates an OpenTok session with a "room" name. This route handles the passed room name and performs a check to determine whether the app should generate a new session ID or retrieve a session ID from the local in-memory hash. Then, it generates an OpenTok token for that session ID. Once the API key, session ID, and token are ready, it sends a response with the body set to a JSON object containing the information.
 if (localStorage[roomName]) {
     // fetch an existing sessionId
     const sessionId = localStorage[roomName];
