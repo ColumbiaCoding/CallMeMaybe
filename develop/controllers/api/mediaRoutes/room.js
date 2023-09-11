@@ -10,7 +10,7 @@ if (localStorage[roomName]) {
     token = opentok.generateToken(sessionId);
     res.setHeader('Content-Type', 'application/json');
     res.send({
-      apiKey: apiKey,
+      API_KEY: API_KEY,
       sessionId: sessionId,
       token: token,
     });
@@ -31,7 +31,7 @@ if (localStorage[roomName]) {
       token = opentok.generateToken(session.sessionId);
       res.setHeader('Content-Type', 'application/json');
       res.send({
-        apiKey: apiKey,
+        API_KEY: API_KEY,
         sessionId: session.sessionId,
         token: token,
       });

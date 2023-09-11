@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const OpenTok = require("opentok");
-const opentok = new OpenTok(apiKey, apiSecret);
 const { User } = require('../../../models');
 
 // The following Node.js code creates a session that uses the OpenTok Media Router:

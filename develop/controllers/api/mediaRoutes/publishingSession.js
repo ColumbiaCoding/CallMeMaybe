@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const OpenTok = require("opentok");
-const opentok = new OpenTok(apiKey, apiSecret);
+const opentok = new OpenTok(API_KEY, apiSecret);
 const { User } = require('../../../models');
 
 // Publish a video and audio stream in a session that others can view by subscribing to it.
@@ -313,8 +313,8 @@ publisher.on({
       + event.reason);
   }
 });
-// Replace apiKey and sessionID with your own values:
-session = OT.initSession(apiKey, sessionID);
+// Replace API_KEY and sessionID with your own values:
+session = OT.initSession(API_KEY, sessionID);
 // Replace token with your own value:
 session.connect(token, function (error) {
   if (session.capabilities.publish == 1) {

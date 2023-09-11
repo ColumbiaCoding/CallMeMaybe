@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const OpenTok = require("opentok");
-const opentok = new OpenTok(apiKey, apiSecret);
+const opentok = new OpenTok(API_KEY, API_SECRET);
 const { User } = require('../../../models');
 
 
 // Initializing a Session object
 // Before you can connect to a session, instantiate a Session object by calling the OT.initSession() method with your OpenTok API key and the appropriate session ID:
 // Replace with your OpenTok API key and session ID:
-var session = OT.initSession(apiKey, sessionID);
+var session = OT.initSession(API_KEY, sessionID);
 
 
 // The OT.initSession() method returns a Session object, through which subsequent API calls take place.
@@ -15,7 +15,7 @@ var session = OT.initSession(apiKey, sessionID);
 // If the user's browser does not support WebRTC, the call to OT.initSession() results in the page displaying a message to the user. To check for WebRTC support and prevent this message from being displayed, you can call the OT.checkSystemRequirements() method before calling OT.initSession():
 
 if (OT.checkSystemRequirements() == 1) {
-  var session = OT.initSession(apiKey, sessionId);
+  var session = OT.initSession(API_KEY, sessionId);
 } else {
   // The client does not support WebRTC.
   // You can display your own message.
@@ -24,7 +24,7 @@ if (OT.checkSystemRequirements() == 1) {
 // Connecting to a session
 // Once you have initialized a Session object, call its connect() method, passing in a token and a completion handler function:
 
-var session = OT.initSession(apiKey, sessionId);
+var session = OT.initSession(API_KEY, sessionId);
 session.connect(token, function(error) {
   if (error) {
     console.log("Error connecting: ", error.name, error.message);
@@ -121,8 +121,8 @@ var session;
 var connectionCount = 0;
 
 function connect() {
-  // Replace apiKey and sessionId with your own values:
-  session = OT.initSession(apiKey, sessionId);
+  // Replace API_KEY and sessionId with your own values:
+  session = OT.initSession(API_KEY, sessionId);
   session.on({
     connectionCreated: function (event) {
       connectionCount++;
