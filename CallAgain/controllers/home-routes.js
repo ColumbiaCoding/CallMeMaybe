@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Appointment, Friend } = require('../models');
 
-// GET all galleries for homepage
+// GET all appointment for homepage
 router.get('/', async (req, res) => {
   try {
     const dbAppointmentData = await Appointment.findAll({
@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const galleries = dbAppointmentData.map((appointment) =>
+    const appointments = dbAppointmentData.map((appointment) =>
       appointment.get({ plain: true })
     );
     // Send over the 'loggedIn' session variable to the 'homepage' template
     res.render('homepage', {
-      galleries,
+      appointments,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
