@@ -1,5 +1,5 @@
 :root {
-  --primary: #3d5852;
+  --primary: #49583d;
   --secondary: #86938f;
   --tertiary: #5e877f;
   --quatrinary: #6c6b67;
@@ -161,4 +161,10 @@ img {
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+#logo {
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
 }
