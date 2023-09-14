@@ -1,7 +1,7 @@
 :root {
   --primary: #498133;
   --secondary: #254b16;
-  --tertiary: #5e877f;
+  --tertiary: #6c965b;
   --quatrinary: #6c6b67;
   --light: #e3e4e3;
   --dark: #182c23;
@@ -33,6 +33,10 @@ header {
   text-align: center;
   background: var(--primary);
   color: var(--light);
+}
+
+header h1 {
+  margin-top: 50px;
 }
 
 main {
@@ -124,7 +128,7 @@ img {
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
-  background-color: #577a7c;
+  background-color: #6c965b;
   color: var(--light);
 }
 
