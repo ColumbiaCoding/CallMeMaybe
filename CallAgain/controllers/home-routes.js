@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
     const appointments = dbAppointmentData.map((appointment) =>
       appointment.get({ plain: true })
     );
+    console.log(appointments);
     // Send over the 'loggedIn' session variable to the 'homepage' template
     res.render('homepage', {
       appointments,
