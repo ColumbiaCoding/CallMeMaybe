@@ -1,3 +1,0 @@
-DROP DATABASE IF EXISTS callme_db;
-
-CREATE DATABASE callme_db;
