@@ -1,0 +1,20 @@
+<section class="container" id="container_2">
+<link href="/css/app.css" rel="stylesheet" type="text/css">
+<script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+<script type="text/javascript" src="/js/config.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+  <h3 class="appointment-name">{{appointment.name}}</h3>
+  <h4>Chat time starts: {{format_time appointment.starting_date}}</h4>
+  <h4>Chat time ends: {{format_time appointment.ending_date}}</h4>
+  <!-- If the user is logged in, render the appointment content -->
+  {{#if loggedIn}}
+  <section class="flex-row justify-center">
+    {{#each appointment.friend as |friend|}}
+    {{> friend-details}}
+    {{/each}}
+  </section>
+</section>
+<!-- Otherwise, provide a link to login -->
+{{else}}
+<a href="/login">Looking forward to chatting with you</a>
+{{/if}}
