@@ -67,3 +67,14 @@ if (API_KEY && TOKEN && SESSION_ID) {
     alert('Failed to get opentok sessionId and token. Make sure you have updated the config.js file.');
   });
 }
+
+
+//set the insertMode property of the options you pass into the OT.initPublisher() method to 'append' to have the publisher appended as a child of the DOM element (container) you specify:
+var publisherOptions = {
+  insertMode: 'append',
+  width: 400,
+  height: 300
+};
+var publisher = OT.initPublisher('container_2', publisherOptions);
+session.publish(publisher);
+
