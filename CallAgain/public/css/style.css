@@ -45,22 +45,15 @@ main {
   flex-grow: 1;
 }
 
-aside {
-  flex: 0;
-  background-color: var(--tertiary);
-  padding: 80px;
-  text-align: left;
-  color: var(--light);
-}
-
 nav {
   display: flex;
   background-color: var(--secondary);
+  padding: 15px;
 }
 
 nav a {
   color: var(--light);
-  padding: 14px 20px;
+  /* padding: 1px 20px; */
   text-decoration: none;
   text-align: center;
 }
@@ -72,7 +65,7 @@ nav a:hover {
 
 .appointment {
   flex: 4;
-  background-color: #fff;
+  background-color: #eae252;
   padding: 50px;
   display: flex;
   flex-flow: row wrap;
