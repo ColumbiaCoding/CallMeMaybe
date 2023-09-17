@@ -1,5 +1,4 @@
 const { Appointment } = require('../models');
-
 const appointmentdata = [
   {
     name: 'Gabriel Regus',
@@ -22,7 +21,17 @@ const appointmentdata = [
     ending_date: 'March 19, 2021 19:00:00',
   },
 ];
-
 const seedAppointment = () => Appointment.bulkCreate(appointmentdata);
-
 module.exports = seedAppointment;
+
+
+
+
+
+
+
+
+
+
+
+
