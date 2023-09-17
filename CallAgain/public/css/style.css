@@ -370,3 +370,7 @@ form .form-input {
   padding: 5px;
   width: 150px;
 }
+
+.min-100-vh {
+  min-height: 100vh;
+}
