@@ -1,76 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
-        <!-- Include your CSS file here -->
-        <title>Login Page with OpenTok and Calendar</title>
-    </head>
-    <body>
-        <div class="container">
-            <!-- Handlebars template for the login form -->
-            <div class="login-card" id="login-card"></div>
+<html>
+<body>
+<!-- OpenTok.js library -->
+<script src="https://static.opentok.com/v2/js/opentok.js"></script>
+<script>
 
-            <!-- OpenTok video chat component -->
-            <div id="video-container">
-                <!-- OpenTok video elements will be inserted here -->
-            </div>
+ // credentials
+ var apiKey = '47734721';
+ var sessionId = '2_MX40NzczNDcyMX5-MTY5NDY0NjQzOTE3OH51bnhVaTlCZEdIUjF6LytWbjlaTS9zakF-fn4';
+ var token = 'T1==cGFydG5lcl9pZD00NzczNDcyMSZzaWc9OGU4YzE0OTlkNGZkZDcyMGYyOWRmNjM3ZDc2Y2RkNDg0NTIwYjlkMDpzZXNzaW9uX2lkPTJfTVg0ME56Y3pORGN5TVg1LU1UWTVORFkwTmpRek9URTNPSDUxYm5oVmFUbENaRWRJVWpGNkx5dFdiamxhVFM5emFrRi1mbjQmY3JlYXRlX3RpbWU9MTY5NDY0NjUyOCZub25jZT0wLjM0NDU2Mzc4ODg3MjU2NjEmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTY5NDY1MDEyNyZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==';
+ 
+ // connect to session
+ var session = OT.initSession(apiKey, sessionId);
+ 
+ // create publisher
+ var publisher = OT.initPublisher();
+ session.connect(token, function(err) {
+    // publish publisher
+   session.publish(publisher);
+   
+    
+ });
+   
+ // create subscriber
+   session.on('streamCreated', function(event) {
+    session.subscribe(event.stream);
+ });
 
-            <!-- Calendar container -->
-            <div class="calendar-container" id="calendar-container">
-                <!-- Calendar content will be inserted here -->
-            </div>
-        </div>
-
-        <!-- Include Handlebars library -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-
-        <!-- Handlebars template for the login form -->
-        <script id="login-template" type="text/x-handlebars-template">
-            <h2 class="page-title">Login</h2>
-            <form class="form login-form">
-                <div class="form-group">
-                    <label for="email-login">Email:</label>
-                    <input class="form-input" type="text" id="email-login" />
-                </div>
-                <div class="form-group">
-                    <label for="password-login">Password:</label>
-                    <input
-                        class="form-input"
-                        type="password"
-                        id="password-login"
-                    />
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Login</button>
-                </div>
-            </form>
-        </script>
-
-        <!-- JavaScript for rendering the login form using Handlebars -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                var loginTemplate =
-                    document.getElementById("login-template").innerHTML;
-                var loginCard = document.getElementById("login-card");
-
-                var data = {}; // You can provide data for the login form here
-
-                var template = Handlebars.compile(loginTemplate);
-                loginCard.innerHTML = template(data);
-            });
-        </script>
-
-        <!-- OpenTok.js library and JavaScript for OpenTok video chat -->
-        <script src="https://static.opentok.com/v2/js/opentok.js"></script>
-        <script src="opentok-script.js"></script>
-
-        <!-- CSS for the calendar -->
-        <link rel="stylesheet" href="calendar.css" />
-        <!-- Include your calendar CSS file here -->
-
-        <!-- JavaScript for the calendar -->
-        <script src="calendar-script.js"></script>
-    </body>
+</script>
+</body>
 </html>
