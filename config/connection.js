@@ -3,6 +3,7 @@ require('dotenv').config();
 
 let sequelize;
 
+//added the jaws for Heroku to be deployed
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
