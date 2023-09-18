@@ -1,0 +1,29 @@
+<html>
+<body>
+<!-- OpenTok.js library -->
+<script src="https://static.opentok.com/v2/js/opentok.js"></script>
+<script>
+
+ // credentials need to be deleted. n
+
+ 
+ // connect to session
+ var session = OT.initSession(apiKey, sessionId);
+ 
+ // create publisher
+ var publisher = OT.initPublisher();
+ session.connect(token, function(err) {
+    // publish publisher
+   session.publish(publisher);
+   
+    
+ });
+   
+ // create subscriber
+   session.on('streamCreated', function(event) {
+    session.subscribe(event.stream);
+ });
+
+</script>
+</body>
+</html>
