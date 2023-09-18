@@ -1,0 +1,14 @@
+<!-- If the user is logged in, render the friend content -->
+{{#if loggedIn}}
+<section class="friend">
+  <img src="/images/{{friend.filename}}" alt="{{friend.description}}">
+  <div class="friend-details">
+    <h3>{{friend.title}}</h3>
+    <p>By: {{friend.artist}}</p>
+    <p>Chat time open until: {{ format_date friend.exhibition_date}}</p>
+  </div>
+</section>
+<!-- Otherwise, provide a link to login -->
+{{else}}
+<a href="/login">Looking forward to chatting with you</a>
+{{/if}}
