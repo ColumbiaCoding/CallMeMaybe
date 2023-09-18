@@ -11,7 +11,7 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up sessions
+// Set up sessions...
 const sess = {
   secret: 'Super secret secret',
   resave: false,
